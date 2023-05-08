@@ -33,7 +33,8 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "commonChunk": false
           },
           "configurations": {
             "production": {
@@ -69,7 +70,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "configurations": {
             "production": {
               "browserTarget": "shell:build:production"
@@ -78,7 +79,10 @@
               "browserTarget": "shell:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "extraWebpackConfig": "./webpack.config.js"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
